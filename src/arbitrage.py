@@ -61,4 +61,22 @@ def structure_triangular_arbitrage(coin_list):
                                     count_c_quote += 1
                             # Determining a triangular match
                             if count_c_base == 2 and count_c_quote == 2 and c_base != c_quote:
-                                print(pair_a, pair_b, pair_c)
+                                combined = pair_a + "|" + pair_b + "|" + pair_c
+                                unique_item = ''.join(sorted(combine_all))
+                                if unique_item not in remove_duplicates_list:
+                                    match_dict = {
+                                        "a_base": a_base,
+                                        "b_base": b_base,
+                                        "c_base": c_base,
+                                        "a_quote": a_quote,
+                                        "b_quote": b_quote,
+                                        "c_quote": c_quote,
+                                        "pair_a": pair_a,
+                                        "pair_b": pair_b,
+                                        "pair_c": pair_c,
+                                        "combined": combined
+                                    }
+                                    remove_duplicates_list.append(unique_item)
+                                    triangular_pair_list.append(match_dict)
+
+    return triangular_pair_list

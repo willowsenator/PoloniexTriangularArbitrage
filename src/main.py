@@ -1,3 +1,5 @@
+import json
+
 import arbitrage
 
 """
@@ -25,7 +27,11 @@ def step_0():
 
 
 def step_1(coin_list):
-    arbitrage.structure_triangular_arbitrage(coin_list)
+    structured_list = arbitrage.structure_triangular_arbitrage(coin_list)
+
+    # Save structure list to JSON
+    with open("structured_triangular_pairs.json", "w") as file:
+        json.dump(structured_list, file)
 
 
 if __name__ == "__main__":
