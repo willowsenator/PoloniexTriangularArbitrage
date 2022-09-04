@@ -1,9 +1,10 @@
+import arbitrage
+
 """
     Step 0: Finding coins which can be traded
     Poloniex Exchange
     https://docs.legacy.poloniex.com/
 """
-import arbitrage
 
 
 def step_0():
@@ -17,6 +18,16 @@ def step_0():
     return coins_list
 
 
+"""
+    Step 1: Structuring Triangular pairs
+    Calculation only
+"""
+
+
+def step_1(coin_list):
+    arbitrage.structure_triangular_arbitrage(coin_list)
+
+
 if __name__ == "__main__":
     coin_list = step_0()
-    print(coin_list)
+    structured_pairs = step_1()

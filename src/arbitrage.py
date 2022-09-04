@@ -17,3 +17,17 @@ def collect_tradeable_coins(coins_json):
         if is_frozen == "0" and post_only == "0":
             coins_list.append(coin)
     return coins_list
+
+
+# Structure Arbitrage pairs
+def structure_triangular_arbitrage(coin_list):
+    triangular_pair_list = []
+    remove_duplicates_list = []
+    pairs_list = []
+
+    # Pair A
+    for pair_a in coin_list:
+        pair_a_split = pair_a.split('_')
+        a_base = pair_a_split[0]
+        a_quote = pair_a_split[1]
+        print(a_base, a_quote)
