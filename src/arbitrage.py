@@ -30,4 +30,15 @@ def structure_triangular_arbitrage(coin_list):
         pair_a_split = pair_a.split('_')
         a_base = pair_a_split[0]
         a_quote = pair_a_split[1]
-        print(a_base, a_quote)
+
+        # Assign A to a box
+        a_pair_box = [a_base, a_quote]
+
+        # Pair B
+        for pair_b in coin_list:
+            pair_b_split = pair_b.split('_')
+            b_base = pair_b_split[0]
+            b_quote = pair_b_split[1]
+            if pair_b != pair_a:
+                if b_base in a_pair_box or b_quote in a_pair_box:
+                    pass
