@@ -30,4 +30,4 @@ def step_1(coin_list):
 
 if __name__ == "__main__":
     coin_list = step_0()
-    structured_pairs = step_1()
+    structured_pairs = step_1(coin_list)
