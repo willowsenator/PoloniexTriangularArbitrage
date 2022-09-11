@@ -50,18 +50,18 @@ def step_2():
     prices_json = arbitrage.get_coin_tickers(coin_price_url)
 
     # Structure price Info
-    time.sleep(0.5)
     for t_pair in structured_pairs:
+        time.sleep(0.3)
         prices_dict = arbitrage.get_price_for_t_pair(t_pair, prices_json)
         surface_arb = arbitrage.calc_triangular_arb_surface_rate(t_pair, prices_dict)
         if len(surface_arb) > 0:
-            print("New Trade", surface_arb["direction"])
-            print(surface_arb["trade_description_1"])
-            print(surface_arb["trade_description_2"])
-            print(surface_arb["trade_description_3"])
+            real_rate_arb = arbitrage.get_depth_from_orderbook(surface_arb)
+            print(real_rate_arb)
+            time.sleep(20)
 
 
 if __name__ == "__main__":
     # coin_list = step_0()
     # step_1(coin_list)
-    step_2()
+    while True:
+        step_2()
